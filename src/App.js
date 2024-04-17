@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+
+import React, { useRef, useEffect, useState } from 'react';
+import QrScanner from 'qr-scanner';
+
+QrScanner.WORKER_PATH = '/path/to/qr-scanner-worker.min.js';
+
+function MyComponent() {
+  const videoRef = useRef(null);
+  const [rollno, setRollno] = useState([]); // State variable to store roll number
+
+  useEffect(() => {
+    const qrScanner = new QrScanner(
+      videoRef.current,
+      result => {
+        console.log('decoded qr code:', result);
+        setRollno(prevRollnos=>[...prevRollnos,result.data]); // Save the result in the rollno state variable
+      },
+      { returnDetailedScanResult: true }
+    );
+
+    qrScanner.start();
+
+    return () => {
+      qrScanner.destroy();
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <video ref={videoRef} width="640" height="480" autoPlay></video>
+      {/* <p>Decoded Roll No: {rollno}</p> */}
+      <div>
+        <h2>Decoded Roll Numbers:</h2>
+        <ul>
+          {rollno.map((rollno, index) => (
+            <li key={index}>{rollno}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default MyComponent;
+
