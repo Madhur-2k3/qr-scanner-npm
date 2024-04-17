@@ -71,7 +71,7 @@ function MyComponent() {
   }, []);
 
   // Convert Set to array for rendering
-  const uniqueRollnosArray = Array.from(uniqueRollnos);
+  const uniqueRollnosArray = Array.from(uniqueRollnos).reverse();
 
   return (
     <div>
