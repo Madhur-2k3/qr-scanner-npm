@@ -134,14 +134,24 @@ function Scanner() {
         className='h-72 mx-auto mt-8'
       ></video>
 
-      <div className="mx-auto w-full flex flex-col items-center">
+    {
+        uniqueRollnosArray.length>0?(
+            <div className="mx-auto w-full flex flex-col items-center">
         <h2 className='text-xl text-blue-400'>Scanned Roll Numbers:</h2>
-        <ul>
+        <ul className=' max-h-[30vh] min-w-fit px-3 overflow-y-auto text-gray-400'>
           {uniqueRollnosArray.map((rollno, index) => (
             <li key={index}>{rollno}</li>
           ))}
         </ul>
+        <button className=' bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2 '>Send to Mail</button>
       </div>
+        ):(
+            <div></div>
+        )
+    }
+
+      
+      
     </div>
   );
 }
