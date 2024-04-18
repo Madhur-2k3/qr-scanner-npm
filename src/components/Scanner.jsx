@@ -114,6 +114,14 @@ function Scanner() {
   // Convert Set to array for rendering
   const uniqueRollnosArray = Array.from(uniqueRollnos).reverse();
 
+  const sendEmail=()=>{
+    const emailData = uniqueRollnosArray.join(', '); // Convert array to comma-separated string
+    const emailAddress = '245121733110@mvsrec.edu.in';
+    const mailtoLink = `mailto:${emailAddress}?subject=Scanned Roll Numbers&body=${encodeURIComponent(emailData)}`;
+    window.location.href = mailtoLink;
+
+  }
+
   return (
     <div>
       <button
@@ -143,7 +151,7 @@ function Scanner() {
             <li key={index}>{rollno}</li>
           ))}
         </ul>
-        <button className=' bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2 '>Send to Mail</button>
+        <button className=' bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2 ' onClick={sendEmail}>Send to Mail</button>
       </div>
         ):(
             <div></div>
