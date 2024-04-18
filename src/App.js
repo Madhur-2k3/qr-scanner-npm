@@ -44,50 +44,15 @@
 
 // export default MyComponent;
 
-import React, { useRef, useEffect, useState } from 'react';
-import QrScanner from 'qr-scanner';
+import React from 'react'
+import Scanner from './components/Scanner'
 
-QrScanner.WORKER_PATH = '/path/to/qr-scanner-worker.min.js';
-
-function MyComponent() {
-  const videoRef = useRef(null);
-  const [uniqueRollnos, setUniqueRollnos] = useState(new Set()); // State variable to store unique roll numbers
-
-  useEffect(() => {
-    const qrScanner = new QrScanner(
-      videoRef.current,
-      result => {
-        console.log('decoded qr code:', result);
-        setUniqueRollnos(prevRollnos => new Set([...prevRollnos, result.data])); // Add the result to the uniqueRollnos set
-      },
-      { returnDetailedScanResult: true }
-    );
-
-    qrScanner.start();
-
-    return () => {
-      qrScanner.destroy();
-    };
-  }, []);
-
-  // Convert Set to array for rendering
-  const uniqueRollnosArray = Array.from(uniqueRollnos).reverse();
-
+const App = () => {
   return (
-    <div>
-      <video ref={videoRef} width="640" height="480" autoPlay></video>
-      <div>
-        <h2>Unique Roll Numbers:</h2>
-        <ul>
-          {uniqueRollnosArray.map((rollno, index) => (
-            <li key={index}>{rollno}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+    <>
+      <Scanner/>
+    </>
+  )
 }
 
-export default MyComponent;
-
-
+export default App
