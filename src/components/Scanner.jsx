@@ -144,6 +144,10 @@ function Scanner() {
 
   const qrScannerRef = useRef(null);
 
+  // Create an Audio object for the beep sound
+  const beepSound = useRef(new Audio('/beep.mp3')); // Update the path to your beep sound file
+
+
   const startScanner = () => {
     if (!scannerRunning && qrScannerRef.current) {
       qrScannerRef.current.start();
@@ -169,6 +173,7 @@ function Scanner() {
       videoRef.current,
       (result) => {
         console.log('decoded qr code:', result);
+        beepSound.current.play(); //play the beep sound
         const scanTime = new Date().toLocaleTimeString();
         setScannedData((prevData) => {
           // Check if the roll number is already scanned
@@ -226,13 +231,16 @@ function Scanner() {
         />
       </form>
 
-      <video
+    <div className="mt-8">
+    <video
         ref={videoRef}
         width="800"
         height="800"
         autoPlay
-        className="h-72 w-full  mt-8"
+        className="h-72 w-full  "
       ></video>
+    </div>
+      
 
       {scannedDataArray.length > 0 && (
         <div className="mx-auto w-full flex flex-col items-center">
