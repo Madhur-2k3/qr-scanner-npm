@@ -231,7 +231,7 @@ function Scanner() {
         width="800"
         height="800"
         autoPlay
-        className="h-72 mx-auto mt-8"
+        className="h-72 w-full  mt-8"
       ></video>
 
       {scannedDataArray.length > 0 && (
