@@ -75,12 +75,12 @@ function Scanner() {
     <div>
       <div className="text-xl text-center h-10 flex justify-center items-center font-semibold bg-[#8AAAE5]">QR Scanner</div>
 
-      <form onSubmit={submitHandler} className=" flex justify-center gap-8 pt-8">
+      <form onSubmit={submitHandler} className=" flex justify-center gap-8 pt-8 mx-2">
         <input
           type="text"
           placeholder="Enter your mail ID"
-          size={40}
-          className="border border-black rounded-md px-2 py-1"
+          // size={40}
+          className="border w-96  border-black rounded-md px-2 py-1"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
