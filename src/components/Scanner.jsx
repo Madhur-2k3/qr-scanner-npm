@@ -108,7 +108,7 @@ function Scanner() {
         />
       </form>
 
-    <div className=" mt-8 w-[80%]  mx-auto flex justify-center">
+    <div className=" my-8 w-[80%] h-[80%]  mx-auto flex justify-center">
       <video
         ref={videoRef}
         // width="800"
