@@ -89,70 +89,122 @@ function Scanner() {
   // };
 
   return (
-    <div>
-      <div className="text-xl text-center h-10 flex justify-center items-center font-semibold bg-[#8AAAE5]">QR Scanner</div>
+    // <div>
+    //   <div className="text-xl text-center h-10 flex justify-center items-center font-semibold bg-[#8AAAE5]">QR Scanner</div>
 
-      <form onSubmit={submitHandler} className="flex justify-center gap-8 pt-8 mx-2">
-        <input
-          type="text"
-          placeholder="Enter your mail ID"
-          // size={40}
-          className="border w-96 border-black rounded-md px-2 py-1"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <input
-          type="submit"
-          value='Start'
-          className="bg-blue-500 px-4 py-1 rounded-md flex justify-center items-center"
-        />
-      </form>
+    //   <form onSubmit={submitHandler} className="flex justify-center gap-8 pt-8 mx-2">
+    //     <input
+    //       type="text"
+    //       placeholder="Enter your mail ID"
+    //       // size={40}
+    //       className="border w-96 border-black rounded-md px-2 py-1"
+    //       value={text}
+    //       onChange={(e) => setText(e.target.value)}
+    //     />
+    //     <input
+    //       type="submit"
+    //       value='Start'
+    //       className="bg-blue-500 px-4 py-1 rounded-md flex justify-center items-center"
+    //     />
+    //   </form>
 
-    {/* <div className=" my-8  w-[80%]  mx-auto flex justify-center">
-      <video
-        ref={videoRef}
-        width="800"
-        height="800"
-        autoPlay
-        // className=' h-96'
+    // {/* <div className=" my-8  w-[80%]  mx-auto flex justify-center">
+    //   <video
+    //     ref={videoRef}
+    //     width="800"
+    //     height="800"
+    //     autoPlay
+    //     // className=' h-96'
         
-      ></video>
-    </div> */}
-    <video
-        ref={videoRef}
-        width="800"
-        height="800"
-        autoPlay
-        className='h-72 mx-auto mt-8'
-      ></video>
+    //   ></video>
+    // </div> */}
+    // <video
+    //     ref={videoRef}
+    //     width="800"
+    //     height="800"
+    //     autoPlay
+    //     className='h-72 mx-auto mt-8'
+    //   ></video>
       
 
-      {scannedDataArray.length > 0 && (
-        <div className="mx-auto w-full flex flex-col items-center overflow-y-scroll">
-          <h2 className="text-xl text-blue-400">Scanned Roll Numbers:</h2>
-          <ul className="max-h-[20vh] min-w-fit px-3 overflow-y-auto text-gray-400">
-            {scannedDataArray.map((data, index) => (
-              <div key={index} className="flex gap-6">
-                <li>{data.rollno} ,{data.time}</li>
-              </div>
-            ))}
-          </ul>
-          <button
-            className="bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2"
-            onClick={sendEmail}
-          >
-            Send to Mail
-          </button>
-          {/* <button onClick={shareOnWhatsApp}>Share on WhatsApp</button> */}
-        </div>
-      )}
-      <div className=' fixed 
-    inset-x-0 
-    bottom-0 
-    p-4  text-center text-gray-200 bg-gray-900'>
-        Developed by: MADHUR VILAS KANNAMWAR (2451-21-733-110), Guided by: T.Sujanavan, Assistant Professor, Dept. of CSE, MVSREC
+    //   {scannedDataArray.length > 0 && (
+    //     <div className="mx-auto w-full flex flex-col items-center overflow-y-scroll">
+    //       <h2 className="text-xl text-blue-400">Scanned Roll Numbers:</h2>
+    //       <ul className="max-h-[20vh] min-w-fit px-3 overflow-y-auto text-gray-400">
+    //         {scannedDataArray.map((data, index) => (
+    //           <div key={index} className="flex gap-6">
+    //             <li>{data.rollno} ,{data.time}</li>
+    //           </div>
+    //         ))}
+    //       </ul>
+    //       <button
+    //         className="bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2"
+    //         onClick={sendEmail}
+    //       >
+    //         Send to Mail
+    //       </button>
+    //       {/* <button onClick={shareOnWhatsApp}>Share on WhatsApp</button> */}
+    //     </div>
+    //   )}
+    //   <div className=' fixed 
+    // inset-x-0 
+    // bottom-0 
+    // p-4  text-center text-gray-200 bg-gray-900'>
+    //     Developed by: MADHUR VILAS KANNAMWAR (2451-21-733-110), Guided by: T.Sujanavan, Assistant Professor, Dept. of CSE, MVSREC
+    // </div>
+    // </div>
+
+<div className="min-h-screen flex flex-col justify-between bg-slate-600">
+  <div className="text-xl text-center h-10 flex justify-center items-center font-semibold bg-[#8AAAE5]">QR Scanner</div>
+
+  <form onSubmit={submitHandler} className="flex justify-center gap-8 pt-8 mx-2">
+    <input
+      type="text"
+      placeholder="Enter your mail ID"
+      // size={40}
+      className="border w-96 border-black rounded-md px-2 py-1"
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+    />
+    <input
+      type="submit"
+      value='Start'
+      className="bg-blue-500 px-4 py-1 rounded-md flex justify-center items-center"
+    />
+  </form>
+
+  <video
+    ref={videoRef}
+    width="800"
+    height="800"
+    autoPlay
+    className='h-72 mx-auto mt-8'
+  ></video>
+
+  {scannedDataArray.length > 0 && (
+    <div className="mx-auto w-full flex flex-col items-center overflow-y-scroll mb-4">
+      <h2 className="text-xl text-blue-400">Scanned Roll Numbers:</h2>
+      <ul className="max-h-[20vh] min-w-fit px-3 overflow-y-auto text-gray-400">
+        {scannedDataArray.map((data, index) => (
+          <div key={index} className="flex gap-6">
+            <li>{data.rollno} ,{data.time}</li>
+          </div>
+        ))}
+      </ul>
+      <button
+        className="bg-blue-500 px-4 py-1 rounded-md mx-auto flex mt-2"
+        onClick={sendEmail}
+      >
+        Send to Mail
+      </button>
     </div>
-    </div>
+  )}
+
+  <div className='text-center text-gray-200 bg-gray-900 p-4'>
+    Developed by: MADHUR VILAS KANNAMWAR (2451-21-733-110), Guided by: T.Sujanavan, Assistant Professor, Dept. of CSE, MVSREC
+  </div>
+</div>
+
   );
 }
 
