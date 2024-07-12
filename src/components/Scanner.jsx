@@ -128,7 +128,7 @@ function Scanner() {
       
 
       {scannedDataArray.length > 0 && (
-        <div className="mx-auto w-full flex flex-col items-center">
+        <div className="mx-auto w-full flex flex-col items-center overflow-y-auto">
           <h2 className="text-xl text-blue-400">Scanned Roll Numbers:</h2>
           <ul className="max-h-[20vh] min-w-fit px-3 overflow-y-auto text-gray-400">
             {scannedDataArray.map((data, index) => (
