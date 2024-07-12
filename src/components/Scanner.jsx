@@ -120,7 +120,7 @@ function Scanner() {
     </div> */}
     <video
         ref={videoRef}
-        width="480"
+        width="800"
         height="800"
         autoPlay
         className='h-72 mx-auto mt-8'
