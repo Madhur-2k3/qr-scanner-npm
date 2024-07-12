@@ -108,21 +108,29 @@ function Scanner() {
         />
       </form>
 
-    <div className=" my-8 w-[80%] h-[80%]  mx-auto flex justify-center">
+    {/* <div className=" my-8  w-[80%]  mx-auto flex justify-center">
       <video
         ref={videoRef}
-        // width="800"
-        // height="800"
+        width="800"
+        height="800"
         autoPlay
+        // className=' h-96'
         
       ></video>
-    </div>
+    </div> */}
+    <video
+        ref={videoRef}
+        width="480"
+        height="800"
+        autoPlay
+        className='h-72 mx-auto mt-8'
+      ></video>
       
 
       {scannedDataArray.length > 0 && (
         <div className="mx-auto w-full flex flex-col items-center">
           <h2 className="text-xl text-blue-400">Scanned Roll Numbers:</h2>
-          <ul className="max-h-[30vh] min-w-fit px-3 overflow-y-auto text-gray-400">
+          <ul className="max-h-[20vh] min-w-fit px-3 overflow-y-auto text-gray-400">
             {scannedDataArray.map((data, index) => (
               <div key={index} className="flex gap-6">
                 <li>{data.rollno} ,{data.time}</li>
