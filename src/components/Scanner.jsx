@@ -155,7 +155,7 @@ function Scanner() {
     // </div>
 
 <div className="min-h-screen flex flex-col justify-between bg-slate-600">
-  <div className="text-xl text-center h-10 flex justify-center items-center font-semibold bg-[#8AAAE5]">QR Scanner</div>
+  <div className=" text-gray-200 bg-gray-900 text-center h-12 flex justify-center items-center font-semibold text-lg">QR Scanner</div>
 
   <form onSubmit={submitHandler} className="flex justify-center gap-8 pt-8 mx-2">
     <input
@@ -169,7 +169,7 @@ function Scanner() {
     <input
       type="submit"
       value='Start'
-      className="bg-blue-500 px-4 py-1 rounded-md flex justify-center items-center"
+      className="text-gray-200 bg-gray-900 w-fit px-4 py-1 rounded-md"
     />
   </form>
 
@@ -178,7 +178,7 @@ function Scanner() {
     width="800"
     height="800"
     autoPlay
-    className='h-72 mx-auto mt-8'
+    className='h-72 mx-auto mt-8 rounded-md'
   ></video>
 
   {scannedDataArray.length > 0 && (
